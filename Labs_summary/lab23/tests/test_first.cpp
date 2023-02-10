@@ -10,4 +10,5 @@ void test_get_some_smart_word(){
 
 int main(){
     test_get_some_smart_word();
+    return 0;
 }
