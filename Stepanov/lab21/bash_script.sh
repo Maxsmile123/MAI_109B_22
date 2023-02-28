@@ -2,7 +2,7 @@
 
 if [[ $# -ne 2 ]]
    then
-	echo "Pleace , insert exactly argument with flag -s or --size: -s [SIZE]"
+	echo "Please , insert exactly argument with flag -s or --size: -s [SIZE]"
         echo ". [scriptname].sh --size [SIZE]"
         echo "Use flag -? with ? to get info about script"
 elif [[ $2 == '?' && $1 == '-?' ]] ; then
@@ -27,7 +27,7 @@ elif [[ $1 == '-s'|| $1 == '--size' ]] ; then
            done
            echo "Done"
 else 
-   echo "Something went wrong, if  you need help,please,use that script with -? ?"
+   echo "Something went wrong, if  you need help, please, use that script with -? ?"
    echo ". [scriptname].sh --size [SIZE]"
    echo "Use flag -? with ? to get info about script"
 
