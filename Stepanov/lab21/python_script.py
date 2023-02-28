@@ -33,7 +33,7 @@ def parser_get_arguments():
         use this python script",
      )
     args = parser.parse_args()
-    return args.size,args.relative_path
+    return args.size, args.relative_path
 
 
 def name_changer(maximum_size_for_find : int, path: str):
@@ -49,7 +49,7 @@ def name_changer(maximum_size_for_find : int, path: str):
 
 
 def main():
-    size,relative_path = parser_get_arguments()
+    size, relative_path = parser_get_arguments()
     name_changer(size, relative_path)
     print("Done")
 
