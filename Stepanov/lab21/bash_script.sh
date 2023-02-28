@@ -2,7 +2,7 @@
 
 if [[ $# -ne 1 ]]
    then
-	echo "Pleace,insert exactly 1 argument -size"
+	echo "Pleace , insert exactly 1 argument -size"
         echo ". [scriptname].sh [size]"
 elif [[ $1 = '?' ]]
    then
