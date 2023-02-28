@@ -2,7 +2,7 @@ import argparse
 import os
 
 
-def parser_get_size():
+def parser_get_arguments():
     parser = argparse.ArgumentParser(
         description = "this script implements a replacement \
         for all files in the \
@@ -12,7 +12,9 @@ def parser_get_size():
         of the file name"
      )
     parser.add_argument(
-        "size",
+        "-s",
+        "--size",
+        required = True,
         type = int,
         action = "store",
         help = "max size of files \
@@ -20,26 +22,35 @@ def parser_get_size():
         to consider them \
         suitable",
      )
+    parser.add_argument(
+        "-rp",
+        "--relative_path",
+        required = True,
+        type = str,
+        action = "store",
+        help = "path to the directory,\
+        where user want to\
+        use this python script",
+     )
     args = parser.parse_args()
-    return args.size
+    return args.size,args.relative_path
 
 
-def name_changer(size, path):
+def name_changer(maximum_size_for_find : int, path: str):
     for path, dirs, files in os.walk(path):
         for file in files:
-            not_an_abs_path = os.path.join(path, file)
-            filesize = os.path.getsize(not_an_abs_path)
-            if size >= filesize:
-                file_preff = file[: file.find(".") + 1]
-                file_first_char = file[0:1]
-                new_file = os.path.join(path, file_preff + file_first_char)
-                os.rename(not_an_abs_path, new_file)
+            relative_path = os.path.join(path, file)
+            filesize = os.path.getsize(relative_path)
+            if maximum_size_for_find >= filesize:
+                file_prefix = file[: file.find(".") + 1]
+                file_first_char = file[0]
+                new_file = os.path.join(path, file_prefix + file_first_char)
+                os.rename(relative_path, new_file)
 
 
 def main():
-    size = parser_get_size()
-    CONST_PATH = "./"
-    name_changer(size, CONST_PATH)
+    size,relative_path = parser_get_arguments()
+    name_changer(size, relative_path)
     print("Done")
 
 

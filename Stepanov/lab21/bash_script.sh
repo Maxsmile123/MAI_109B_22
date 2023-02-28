@@ -12,16 +12,16 @@ else
    for file in $(find -maxdepth 1 -type f -size -$1c)
             do
              file_name=$(echo $file | rev | cut -d '/' -f1 | rev)
-             file_suff=$(echo $file | rev | cut -d '.' -f1 | rev)
+             file_suffix=$(echo $file | rev | cut -d '.' -f1 | rev)
              size_of_file=$(echo $file_name | wc -c)
-             size_of_suf=$(echo $file_suff | wc -c)
-             pref_file=$(echo $file_name | rev | cut -c $size_of_suf- | rev)
-             echo $pref_file
-             fl=$(echo $file_name | cut -c 1)
+             size_of_suffix=$(echo $file_suffix | wc -c)
+             file_prefix=$(echo $file_name | rev | cut -c $size_of_suffix- | rev)
+             echo $file_prefix
+             first_char_of_file=$(echo $file_name | cut -c 1)
              echo $file
-             not_an_abs_path=$(echo $file | rev | cut -c  $size_of_file-  | rev)
-             echo $not_an_abs_path$pref_file$fl
-             $(mv --force -n $file $not_an_abs_path$pref_file$fl) 
+             relative_path=$(echo $file | rev | cut -c  $size_of_file-  | rev)
+             echo $relative_path$file_prefix$first_char_of_file
+             $(mv --force -n $file $relative_path$file_prefix$first_char_of_file) 
            done
            echo "Done"
 fi
