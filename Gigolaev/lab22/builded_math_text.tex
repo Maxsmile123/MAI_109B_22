@@ -1,0 +1,130 @@
+\documentclass{book}
+\usepackage[english, russian]{babel}
+\usepackage{setspace}
+\usepackage[document]{ragged2e}
+\usepackage[a5paper,  total={4.5in, 6in}]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{tabto}
+\usepackage{fancyhdr}
+
+\pagenumbering{arabic}
+\setcounter{page}{254}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead{}
+\fancyhead[LE, RO]{\thepage}
+\fancyhead[CE]{Р А З Д Е Л V. РЯДЫ}
+\fancyhead[CO]{\S 5. Степенные ряды}
+\begin{document}
+
+\quadНайти пределы:\\
+\setstretch{3}
+    \quad\textbf{2806.} \(\underset{x \rightarrow 1 - 0}{lim} \underset{n = 1}{\overset{\infty}{\sum}}\frac{(-1)^{(n+1)}}{n} \cdot \frac{x^n}{x^n + 1}\).\\
+    \quad\textbf{2807.} \(\underset{x \rightarrow 1 - 0}{lim} \underset{n = 1}{\overset{\infty}{\sum}}(x^n - x^{n+1})\).\\
+    \quad\textbf{2808.} а) \(\underset{x \rightarrow +0}{lim} \underset{n = 1}{\overset{\infty}{\sum}}\frac{1}{2^nn^x}\);
+    б) \(\underset{x \rightarrow \infty}{lim} \underset{n = 1}{\overset{\infty}{\sum}}\frac{x^2}{1 + n^2x^2}\).\\
+
+\singlespacing
+\quad\textbf{2809.} Законно ли почленное дифференцирование ряда \\
+\begin{center}
+    \(\underset{n = 1}{\overset{\infty}{\sum}}arctg\frac{x}{n^2}\)?\\    
+\end{center}
+\quad\textbf{2810.} Законно ли почленное интегрирование ряда\\
+\begin{center}
+    \(\underset{n = 1}{\overset{\infty}{\sum}} \left(x^{\frac{1}{2n+1}} - x^{\frac{1}{2n-1}} \right)\)\\    
+\end{center}
+на сегменте [0, 1]?\\
+\textbf{2811.} 1. Пусть \(f(x) (-\infty < x < +\infty)\) - бесконечно дифференцируемая функция и последовательность ее производных \(f^{(n)}(x)(n = 1, 2, ...)\) сходится равномерно на каждом конечном интервале \((a, b)\) к функции \(\phi(x)\). Доказать, что \(\phi(x) = Ce^x\), где \(C\) - постоянная величина. 
+Рассмотреть пример \(f_n(x) = e^{-(x-n)^2}\), \(n = 1, 2, ...\).\\
+\quad 2. Пусть функции \(f_n(x)(n = 1, 2, ...)\) определены и ограничены на \((-\infty, +\infty)\) и \(f_n(x) \rightrightarrows \phi(x)\) на любом сегменте \([a, b]\). Следует ли отсюда, что\\
+\begin{center}
+    \(\underset{n \rightarrow \infty}{lim} \underset{x}{sup}f(x) = \underset{x}{sup}\phi(x)\)?
+\end{center}
+
+\begin{doublespace}
+\setstretch{2}
+    \centering \textbf{ \large \S 5. Степенные ряды}\\
+\end{doublespace}
+
+\qquad \textbf {1. Интервал сходимости.} Для каждого степенного ряда\\
+
+\begin{doublespace}
+    \begin{centering} 
+        \math{\alpha_0 + \alpha_1(x - \alpha) + .. + \alpha_n(x - \alpha)^n + ...}\\
+    \end{centering}
+\end{doublespace}
+существует замкнутый \emph{интервал} сходимости: \(|x - \alpha| \leqslant R\), внутри которого данный ряд сходится, а вне расходится. \emph{Радиус сходимости R} определяется по \emph{формуле Коши-Адамара}
+
+\begin{centering} 
+    \doublespacing \math{\frac{1}{R} =\rm \underset{n \rightarrow \infty}{\overline{lim}} \sqrt[n]{|a_n|} .}\\
+\end{centering}
+Радиус сходимости \emph R может быть вычислен также по формуле\\
+\begin{center}
+    \centering \math{R = \rm \underset{n \rightarrow \infty}{lim} |\frac{a_n}{a_{n+1}}|} , \\    
+\end{center}
+если этот предел существует.
+
+\qquad \textbf{2. Теорема Абеля.} Если степенной ряд \(S(x) = \underset{n = 0}{\overset{\infty}{\sum}} a_nx^n (|x| < R)\) сходится в концевой точке \(x = R\) интервала сходимости, то \\
+\begin{center}
+    \(S(R) = \rm \underset{x \rightarrow R - 0}{lim}S(x)\)
+\end{center}
+
+\qquad \textbf{3. Ряд Тейлора.}  Аналитическая в точке \(a\) функция \(f(x)\) в некоторой окресности этой точки разлагается на степенной ряд \\
+
+\begin{center}
+    \(f(x) = \underset{k = 0}{\overset{\infty}{\sum}} \frac{f^{(k)}(a)}{k!}(x - a)^k\).
+\end{center}
+
+\emph{Остаточный член} этого ряда\\
+
+\begin{center}
+    \(R_n(x) = f(x) - \underset{k = 0}{\overset{n}{\sum}} \frac{f^{(k)}(a)}{k!}(x - a)^k\)
+\end{center}
+может быть представлен в виде\\
+\begin{center}
+    \(R_n(x) = \frac{f^{(n+1)}(a+\theta(x - a))}{(n+1)!}(x-a)^{n+1}\) \((0 < \theta < 1)\)
+\end{center}
+(\emph{форма Лагранжа}) или в виде \\
+\begin{center}
+    \(R_n(x) = \frac{f^{(n+1)}(a+\theta_1(x - a))}{(n)!}(1-\theta_1)^{n}(x - a)^{n+1}\) \((0 < \theta_1 < 1)\)
+\end{center}
+(\emph{форма Коши}). \\
+\onehalfspacing \quad Необходимо помнить следующие пять основных разложений: \\
+\doublespacing
+I. \quad \(e^x = 1 + x + \frac{x^2}{2!} + ... + \frac{x^n}{n!} + ...\) \((-\infty < x < +\infty)\) \\
+II.\quad \(sin x = x - \frac{x^3}{3!} + ... + (-1)^{n-1} \frac{x^{2n-1}}{(2n-1)!} + ...\) \((-\infty < x < +\infty)\) \\
+III. \quad \(cos x = 1 - \frac{x^2}{2!} + ... + (-1)^n\frac{x^{2n}}{(2n)!} + ...\) \((-\infty < x < +\infty)\) \\
+IV. \((1+x)^m = 1 + mx + \frac{m(m-1)}{2!}x^2 + ... \)\\
+
+\begin{raggedleft}
+    \(+ \frac{m(m-1)...(m-n+1)}{n!}x^n + ...\) \((-1 < x < +1)\) \\
+\end{raggedleft}
+V. \quad \(ln(1 + x) = x - \frac{x^2}{2} + \frac{x^3}{3} - ... + (-1)^{n-1}\frac{x^n}{n} + ... \) \((-1 < x \leq +1)\) \\
+\singlespacing 
+\qquad \textbf{4. Действия со степенными рядами.} Внутри общего интервала сходимости \(|x-a| < R\) имеем: 
+\\
+\setstretch{3}
+\qquad\qquad\qquad а) \(\underset{n = 0}{\overset{\infty}{\sum}} a_n(x - a)^n \pm \underset{n = 0}{\overset{\infty}{\sum}} b_n(x - a)^n = \underset{n = 0}{\overset{\infty}{\sum}} (a_n \pm b_n)(x - a)^n\) ;\\
+\qquad\qquad\qquad б) \(\underset{n = 0}{\overset{\infty}{\sum}} a_n(x - a)^n  \underset{n = 0}{\overset{\infty}{\sum}} b_n(x - a)^n = \underset{n = 0}{\overset{\infty}{\sum}} c_n(x - a)^n\) ,\\
+где \(c_n = a_0b_n + a_1b_{n-1} + ... + a_nb_0\);\\
+\qquad\qquad\qquad в) \(\frac{d}{dx} \left[\underset{n = 0}{\overset{\infty}{\sum}} a_n(x - a)^n \right] dx = \underset{n = 0}{\overset{\infty}{\sum}} (n+1)a_{n+1}(x-a)^{n}\);\\
+\qquad\qquad\qquad г) \( \int \left[\underset{n = 0}{\overset{\infty}{\sum}} a_n(x - a)^n \right] dx = C + \underset{n = 0}{\overset{\infty}{\sum}} \frac{a_n}{(n+1)}(x-a)^{n+1}\). \\
+
+\singlespacing
+\qquad \textbf{5. Степенные ряды в комплексной области.} Рассмотрим ряд
+\begin{center}
+    \(\underset{n = 0}{\overset{\infty}{\sum}} c_n(x - a)^n\),
+\end{center}
+где
+\begin{center} 
+    \(c_n = a_n + ib_n\),\quad \(a = \alpha + i\beta\),\quad \(z = x + iy\),\quad \(i^2 = -1\).
+\end{center}
+
+Для каждого такого ряда имеется замкнутый \emph{круг сходимости}\\ \(|x - a| \leqslant R\), внутри которого данный ряд сходится (и при том абсолютно), а вне расходится. \emph{Радиус сходимости R} равен радиусу сходимости степенного ряда\\
+
+\begin{center}
+    \(\underset{n = 0}{\overset{\infty}{\sum}}|c_n|r^n\)\\
+\end{center}
+в действительной области.
+\end{document}
