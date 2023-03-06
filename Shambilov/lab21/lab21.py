@@ -19,7 +19,7 @@ def bypass(dir):
 
 def getdir():
     parser = argparse.ArgumentParser(description='File')
-    parser.add_argument('-d', '--dir', type=str, help='Input dir for start')
+    parser.add_argument('-d', '--dir', type=str, help='The directory to start')
     args = parser.parse_args()
     return args.dir
 
