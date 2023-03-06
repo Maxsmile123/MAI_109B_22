@@ -1,0 +1,95 @@
+\documentclass[a5paper, 10pt]{book}
+
+\usepackage[left=8mm, top=8mm, right=8mm, bottom=8mm, nohead, nofoot]{geometry}
+\usepackage[english, russian]{babel}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{wasysym}
+\usepackage{amssymb}
+
+\author{Александр Недосекин}
+\date{1.03.2023}
+
+\setcounter{page}{36}
+
+\begin{document}
+    \begin{center}
+            \begin{spacing}
+                \textbf{\S\,5. Комплексные числа}
+                \noindent\rule{\textit}{1pt}
+        \end{spacing}
+    \end{center}
+    \par \textbf{1.Определение комплексного числа.}
+    \par \textit{1) Комплексные числа} - выражения вида $a + b_{i}$ ($a, b$ - действительные числа, $i$ - некоторый символ).Равенство $z = a + b_{i}$ означает, что комплексное число $a + b_{i}$ обозначено буквой z, а запись комплексного числа $z$ в виде $a + b_{i}$ называют \textit{алгебраической формой комплексного числа.}
+    
+\newpage
+    
+\setcounter{page}{37}
+
+    \begin{center}
+    \textbf{\S\,5. Комплексные числа}
+    \noindent\rule{\textwidth}{1pt}
+    \end{center}
+      \begin{spacing}
+          \par2) Два комплексных числа $z_{1} = a_{1} + b_{1}i$ и $z_{2} = a_{2} + b_{2}i$ называют \textit{равными} и пишут $z_{1} = z_{2}$, если $a_{1} = a_{2}$, $b_{1} = b_{2}$.
+          \par 3) \textit{Сложение} и \textit{умножение} комплексных чисел $z_{1} = a_{1} + b_{1}i$ и $z_{2} = a_{2} + b_{2}i$ производится согласно формулам
+          \begin{center}
+           $z_{1} + z_{2} = a_{1} + a_{2} + (b_{1} + b_{2})i$,
+          \par $z_{1}z_{2} = a_{1}a_{2} - b_{1}b_{2} + (a_{1}b_{2} + a_{2}b_{1})i$.
+           \end{center}
+           \par 4) Комплексное число вида $a + 0*i$ отождествляют с дейстивтельным числом $a (a + 0*i = a)$, число вида $0 + bi (b \neq 0)$ называют \textit{чисто мнимым} и обозначают $b_{i}; i$ называют \textit{мнимой единицей}. Действительное число $a$ называют \textit{действительной частью}, а действительное число $b$ - \textit{мнимой частью} косплексного числа $a + bi$.
+           \par 5) Справедливо равенство 
+           \begin{center}
+               $i^2 = -1$,  \begin{flushright} (3) \end{flushright}     
+               \end{center}
+           а формулы (1) и (2) получаются по правилам сложения и умножения двучленов $a_{1} + b_{1}i$ и $a_{2} + b_{2}i$ с учетом равенства (3).
+           \par 6) Операции вычитания и деления определяются как обратные для сложения и умножения, а для разности $z_{1} - z_{2}$ и частного $\frac{z_{1}}{z_{2}}$ (при $z_{2} \neq 0$) комплексных чисел $z_{1} = a_{1} + b_{1}i$ и $z_{2} = a_{2} + b_{2}i$ имеют место формулы
+           \begin{center}
+               $z_{1} - z_{2} = a_{1} - a_{2} + (b_{1} - b_{2})i$,
+               \par $\frac{z_{1}}{z_{2}} = \frac{a_{!}a_{2} + b_{1}b_{2}}{a^2_{2} + b^2_{2}} + \frac{a_{2}b_{1} - a_{1}b_{2}}{a^2_{2} + b^2_{2}}$
+           \end{center}
+               \par 7)Сложение и умножение комплексных чисел обладают свойствами коммунитативности, ассоциативности и дистрибутивности:
+               \begin{center}
+                   $z_{1} + z_{2} = z_{2} + z_{1}$,  $z_{1}z_{2} = z_{2}z_{1}$;
+                   \par $(z_{1} + z_{2}) + z_{3} = z_{1} + (z_{2} + z_{3})$, $(z_{1}z_{2}z_{3} = z_{1}(z_{2}z_{3})$;
+                   \par $z_{1}(z_{2} + z_{3}) = z_{1}z_{2} + z_{1}z_{3}$.
+                   \par
+                     \textbf{2.Модуль комплексного числа. Комплексно сопряженные числа.}
+               \end{center}
+               \par \textit{1) Модулем комплексного числа} $z = a + bi$ (обозначается $|z|$) называется число $\sqrt{a^2 + b^2}$, т.е. 
+               \begin{center}
+               $|z| = \sqrt{a^2 + b^2}$.
+               \end{center}
+               \par 2) Для любых комплексных чисел z_{1}, z_{2} справедливы равенства 
+               \begin{center}
+                   $|z_{1}z_{2}| = |z_{1}|*|z_{2}|$;
+                   \par если $z_{2} \neq 0$, то $|\frac{z_{1}}{z_{2}}| = |\frac{z_{1}}{z_{2}}|$
+               \end{center}
+               \par 3) Число $a - bi$ называется \textit{комплексно сопряженным} с числом $z = a + bi$ и обозначается $\vec{z}$, т.е. 
+               \begin{center}
+                   $\vec{z} = \vec{a + bi} = a - bi$.
+               \end{center}
+
+\newpage
+\setcounter{page}{38}
+               \begin{center}
+               \textbf{Гл. 1. Введение}
+               \noindent\rule{\textwidth}{1pt}
+               \end{center}
+               \par Справедливы равенства 
+               \begin{center}
+                   $z*\vec{z} = |z^2|$, $\vec{\vec{z}}$.
+               \end{center}
+               \par 4) Для любых комплексных чисел $z_{1}$, $z_{2}$ верны равенства:
+               \begin{center}
+                   $\vec{z_{1} \pm z_{2}} = \vec{z_{1}} \pm z_{2}$, $\vec{z_{1}z_{2}} = \vec{z_{1}*z_{2}}$;
+                   \par если $z_{2} \neq 0$, то $\vec{\frac{z_{1}}{z_{2}}} = \frac{\vec{z_{1}}}{\vec{z_{2}}}$.
+               \end{center}
+               \par 5) Частное от деления комплексных чисел можно записать в виде 
+               \begin{center}
+                   $\frac{z_1}{z_{2}} = \frac{z_{1}\vec{z_{2}}{z_{2}\vec{z_2}}} = \frac{z_{1}\vec{z_{2}}{|z_{2}|^2}}$, $z_{2} \neq 0$.
+                   \end{center}
+           
+      \end{spacing}
+                
+\end{document}
