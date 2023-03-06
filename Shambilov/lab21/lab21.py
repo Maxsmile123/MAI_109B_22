@@ -12,7 +12,7 @@ def bypass(dir):
     for root, dirs, files in os.walk(str(dir)):
         for file in files:
             path = os.path.join(root, file)
-            if os.path.splitext(path)[1] == '.txt':
+            if os.path.splitext(path)[-1] == '.txt':
                 convert_encoding(path)
         for d in dirs:
             bypass(d)
