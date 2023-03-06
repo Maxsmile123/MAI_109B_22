@@ -3,8 +3,12 @@ import codecs
 import argparse
 
 def convert_encoding(path_to_file, source_encoding, target_encoding):
-    with codecs.open(path_to_file, 'r', encoding=str(source_encoding)) as f:
-        content = f.read()
+    try:
+        with codecs.open(path_to_file, 'r', encoding=str(source_encoding)) as f:
+            content = f.read()
+    except:
+        print('Your encoding is incorrect, try again')
+        return 0
     with codecs.open(path_to_file, 'w', encoding=str(target_encoding)) as f:
         f.write(content)
 
@@ -27,7 +31,11 @@ def getdir():
 
 def main():
     dir, source_encoding, target_encoding = getdir()
-    bypass(dir, source_encoding, target_encoding)
+    if os.path.isdir(str(dir)):
+        bypass(dir, source_encoding, target_encoding)
+    else:
+        print('Incorrect dir, try again')
+        return 0
 
 if __name__ == '__main__':
     main()
