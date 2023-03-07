@@ -19,7 +19,7 @@ fi
 
 count_deleted_files=0
 
-while [[ "$suitable_files_size" -gt "$size" ]];
+while [[ "$files_size" -gt "$size" ]];
 do
         biggest_file=$(echo "$suitable_files_list"|head -n 1|awk '{print $2}')
 
@@ -28,9 +28,9 @@ do
                 rm "$biggest_file"
 
                 count_deleted_files=$((count_deleted_files+1))
-                files_list=$(echo "$suitable_files_list"|tail -n +2)
+                suitable_files_list=$(echo "$suitable_files_list"|tail -n +2)
         else
-                files_list=$(echo "$suitable_files_list"|tail -n +2)
+                suitable_files_list=$(echo "$suitable_files_list"|tail -n +2)
         fi
 
         files_size=$(echo "$suitable_files_list"|awk '{sum+=$1} END {print sum}')
