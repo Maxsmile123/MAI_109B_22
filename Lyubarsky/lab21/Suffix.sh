@@ -14,11 +14,11 @@ options:
 number=1024
 suffix=" "
 directory="."
-file="Output_file"
+outputFile="Output_file"
 
-for var in $*
+for parameter in $*
 do
-    case "$var" in
+    case "$parameter" in
 
         "--help" ) echo "$helpstr"; exit 0;;
 
@@ -35,7 +35,7 @@ do
                 suffix="$var"
             fi
             if [ "$flag" = "-f" ]; then
-                file="$var"
+                outputFile="$var"
             fi
             ;;
     esac
@@ -48,30 +48,30 @@ dirname=$(pwd)
 list=$(ls -Rla | grep ^-)
 
 cd $olddir
-echo -n "" >> $file
+echo -n "" >> $outputFile
 
-sizeOfFile=$(wc -c $file | cut -d ' ' -f1)
+sizeOfOutputFile=$(wc -c $v | cut -d ' ' -f1)
 
-IFS=$(printf '\n.'); IFS=${IFS%.}
-
-if [ $sizeOfFile -gt $number ]; then
+if [ $sizeOfOutputFile -gt $number ]; then
     echo "Заданный файл слишком большой!"
     exit 0
 fi
 
-for var in $list
+IFS=$(printf '\n.'); IFS=${IFS%.}
+
+for file in $list
 do
-    typeOfFile=$(echo $var | cut -c1-10 | grep x)
+    typeOfFile=$(echo $file | cut -c1-10 | grep x)
     if [ "$typeOfFile" != "" ]; then
 
-        start=$(expr ${#var} - ${#suffix})
+        start=$(expr ${#file} - ${#suffix})
         start=$(expr $start + 1)
 
-        sizeOfFile=$(echo $var | awk '{print $5}')
-        suffixOfFile=$(echo $var | cut -c$start-${#var})
+        sizeOfFile=$(echo $file | awk '{print $5}')
+        suffixOfFile=$(echo $file | cut -c$start-${#file})
 
         if [ $suffixOfFile = $suffix ] || [ "$suffix" = " " ]; then
-            echo "Размер: "$sizeOfFile"b Название: $(echo $var | awk '{print $9}')" >> $file
+            echo "Размер: "$sizeOfFile"b Название: $(echo $file | awk '{print $9}')" >> $outputFile
         fi
     fi
 done
