@@ -22,20 +22,20 @@ do
 
         "--help" ) echo "$helpstr"; exit 0;;
 
-        "-s" | "-n" | "-d" | "-f" ) flag=$var ;;
+        "-s" | "-n" | "-d" | "-f" ) flag=$parameter ;;
 
         * )
             if [ "$flag" = "-n" ]; then
-                number=$var
+                number=$parameter
             fi
             if [ "$flag" = "-d" ]; then
-                directory="$var"
+                directory="$parameter"
             fi
             if [ "$flag" = "-s" ]; then
-                suffix="$var"
+                suffix="$parameter"
             fi
             if [ "$flag" = "-f" ]; then
-                outputFile="$var"
+                outputFile="$parameter"
             fi
             ;;
     esac
