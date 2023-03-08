@@ -50,7 +50,7 @@ list=$(ls -Rla | grep ^-)
 cd $olddir
 echo -n "" >> $outputFile
 
-sizeOfOutputFile=$(wc -c $v | cut -d ' ' -f1)
+sizeOfOutputFile=$(wc -c $outputFile | cut -d ' ' -f1)
 
 if [ $sizeOfOutputFile -gt $number ]; then
     echo "Заданный файл слишком большой!"
