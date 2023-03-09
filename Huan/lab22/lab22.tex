@@ -1,0 +1,197 @@
+\documentclass{book}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage[tracking=true]{microtype}
+\usepackage{geometry}
+\geometry{papersize={21 cm,29.3 cm}}
+\geometry{left=2cm}
+\geometry{right=2cm}
+\geometry{top=1.5cm}
+\geometry{bottom=1.5cm}
+
+
+\begin{document}
+\pagestyle{empty}
+\parindent = 0.8cm
+\fontsize{15.5pt}{14.5pt}\selectfont
+\mathversion{normal}
+\abovedisplayskip=5pt
+\belowdisplayskip=5pt
+\newenvironment{boldequation}{\renewcommand\theequation{\textbf{\arabic{equation}}}\equation}
+{\endequation}
+
+\begin{center} 182
+	\hspace{22pt}
+	{\normalsize \textsection ГЛ. VI. ОСНОВНЫЕ ТЕОРЕМЫ ДИФФЕРЕНЦИАЛЬНОГО ИСЧИСЛЕНИЯ}
+	\hspace{22pt}
+	\textbf{[104}\\
+\end{center}
+
+\smallskip
+
+\textbf{103. Предел производной}. Полезный пример такого применения дает следующее замечание. Предположим, что функция $f(x)$ непрерывна в промежутке $\left[x_{0}, x_{0}+H\right](H>0)$ и имеет конечную производную $f^{\prime}(x)$ для $x>x_{0}$. \textls{Если существует} (конечный или нет) предел
+$$
+	\lim _{x \rightarrow x_{0}+0} f^{\prime}(x)=K,
+$$
+\textls{то такова же будет и производная в точке $x_{0}$ справа}. Действительно, при $0<\Delta x \leqslant H$ имеем равенство (3а). Так как аргумент $c$ производной содержится между $x_{0}$ и $x_{0}+\Delta x$, то при $\Delta x \rightarrow 0$ он стремится к $x_{0}$, так что правая часть равенства, а с нею и левая стремится к пределу $K$, что и требовалось доказать. Аналогичное утверждение устанавливается и для левосторонней окрестности точки $x_{0}$.
+
+Рассмотрим в качестве примера функцию
+$$
+	f(x)=x \cdot \arcsin x+\sqrt{1-x^{2}}
+$$
+в промежутке $[-1,1]$. Если $-1<x<1$, то по обычным правилам дифференциального исчисления легко найти:
+$$
+	f^{\prime}(x)=\arcsin x.
+$$
+\noindent При $x \rightarrow 1-0(x \rightarrow-1+0)$ эта производная, очевидно, стремится к пределу $\frac{\pi}{2}\left(-\frac{\pi}{2}\right)$; значит и при $x= \pm 1$ существуют (односторонние) производные: $f^{\prime}( \pm 1)= \pm \frac{\pi}{2}$.
+
+Если вернуться к функциям $f_{1}(x)=x^{\frac{1}{3}}, f_{2}(x)=x^{\frac{2}{3}}$, которые мы рассматривали в $\mathrm{n}^{\circ}\,87$, то для них (при $x \gtrless 0$ ) имеем:
+$$
+	f_{1}^{\prime}(x)=\frac{1}{3 x^{\frac{2}{3}}}, \quad f_{2}^{\prime}(x)=\frac{2}{3 x^{\frac{1}{3}}} .
+$$
+
+\noindent Так как первое из этих выражений при $x \rightarrow 0$ стремится к $+\infty$, а второе при $x \rightarrow \pm 0$ имеет, соответственно, пределы $\pm \infty$, то заключаем сразу, что $f_{1}(x)$ в точке $x=0$ имеет двустороннюю производную $+\infty$, в то время как для $f_{2}(x)$ в этой точке существуют лишь односторонние- производные: $+\infty$ справа и $-\infty$ слева.
+
+Из сказанного вытекает также, что, если конечная производная $f^{\prime}(x)$ существует в некотором промежутке, то она представляет собой функцию, которая не может иметь обыкновенных разрывов или скачков: в каждой точке она либо непрерывна, либо имеет разрыв второго рода $\left[cp.\ 88, \ 2^{\circ}\right]$.
+
+\smallskip
+
+\textbf{104. Обобщенная теорема о конечных приращениях.} Коши следующим образом обобщил доказанную в предыдущем номере теорему о конечных приращениях.
+
+\textit{\textbf{Теорема Коши.} Пусть: 1) функции $f(x)$ и $g(x)$ непрерывны в замкнутом промежутке $[a, b];$ 2) существуют конечные производные $f^{\prime}(x)$ u $g^{\prime}(x)$, по крайней мере, в открытом прожежутке $(a, b);$ 3) $g^{\prime}(x)\neq0$ в промежутже $(a, b)$.}
+
+\textit{Тогда \textls{между} $a$ u $b$ найдется такая точка $c$, что}
+$$
+	\hspace{190pt} \frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f^{\prime}(c)}{g^{\prime}(c)}. \hspace{145pt} (\textbf{5})
+$$
+\noindent Эта формула носит название \textls{формулы Коши}.
+
+\newpage
+\begin{flushleft}
+	\textbf{105]}
+	\hspace{145pt}
+	{\normalsize
+		\S \ 2.\ ФОРМУЛА ТЕЙЛОРА}
+	\hspace{145pt}
+	183\\
+\end{flushleft}
+
+\textls{Доказательство}. Установим сперва, что знаменатель левой части нашего равенства не равен нулю, так как в противном случае выражение это не имело бы смысла. Если бы было $g(b)=g(a)$, то, по теореме Ролля, производная $g^{\prime}(x)$ в некоторой промежуточной точке была бы равна нулю, что противоречит условию 3); значит, $g(b) \neq g(a)$.
+
+Рассмотрим теперь вспомогательную функцию
+$$
+	F(x)=f(x)-f(a)-\frac{f(b)-f(a)}{g(b)-g(a)}[g(x)-g(a)].
+$$
+Эта функция удовлетворяет всем условиям теоремы Ролля. В самом деле, $F(x)$ непрерывна в $[a, \ b]$, так как непрерывны $f(x)$ и $g(x)$; производная $F^{\prime}(x)$ существует в $(a, \ b)$, именно, она равна
+$$
+	F^{\prime}(x)=f^{\prime}(x)-\frac{f(b)-f(a)}{g(b)-g(a)} g^{\prime}(x).
+$$
+Наконец, прямой подстановкой убеждаемся, что $F(a)=F(b)=0$. Применяя названную теорему, заключаем о существовании между $a$ и $b$ такой точки $c$, что $F^{\prime}(c)=0$. Иначе говоря,
+$$
+	f^{\prime}(c)-\frac{f(b)-f(a)}{g(b)-g(a)} \cdot g^{\prime}(c)=0,
+$$
+или
+$$
+	f^{\prime}(c)=\frac{f(b)-f(a)}{g(b)-g(a)} \cdot g^{\prime}(c).
+$$
+
+Разделив на $g^{\prime}(c)$ (это возможно, так как $g^{\prime}(c) \neq 0$), получаем требуемое равенство.
+
+Ясно, что теорема Лагранжа является частным случаем теоремы Коши. Для получения формулы конечных приращений из формулы Коши следует положить $g(x)=x$.
+
+В теоремах $nn^{\circ} \ \textbf{101,\ 102,\ 104}$ фигурирует, под знаком производной, некое \textls{среднее значение} независимой переменной, которое $-$ как указывалось $-$ вообще нам неизвестно. Оно и производной доставляет, в некотором смысле, \textls{среднее значение}. В связи с этим все эти теоремы называют «теоремами о средних значениях».
+
+\smallskip
+\begin{center}
+	\textbf{\S \ 2. \ ФОРМУЛА ТЕЙЛОРА}
+\end{center}
+
+\textbf{105. Формула Тейлора для многочлена.} Если $p(x)$ есть целый многочлен степени $n$:
+\begin{boldequation}
+	\begin{gathered}
+		p(x)=a_{0}+a_{1}x+a_{2}x^{2}+a_{3}x^{3}+\ldots+a_{n}x^{n},
+	\end{gathered}
+\end{boldequation}
+то, последовательно дифференцируя его \textbf{$n$} раз:
+\begin{align*}
+	p^{\prime}(x)               & = a_{1}+2 \cdot a_{2} x+3 \cdot a_{3} x^{2}+\ldots+n \cdot a_{n} x^{n-1},                     \\
+	p^{\prime \prime}(x)        & = 1 \cdot 2 \cdot a_{2}+2 \cdot 3 \cdot a_{3} x+\ldots+(n-1) n \cdot a_{n} x^{n-2} \text {, } \\
+	p^{\prime \prime \prime}(x) & = 1 \cdot 2 \cdot 3 \cdot a_{3}+\ldots+(n-2) \cdot(n-1) n \cdot a_{n} x^{n-3} \text {, }      \\
+	\textls{. . . . }           & \textls{. . . . . . . . . . . . . . . . . . . . . . . . . . . . . }                           \\
+	p^{(n)}(x)                  & = 1 \cdot 2 \cdot 3 \cdot \ldots \cdot n \cdot a_{n}
+\end{align*}
+
+\newpage
+
+\begin{center} 184
+	\hspace{22pt}
+	{\normalsize \textsection ГЛ. VI. ОСНОВНЫЕ ТЕОРЕМЫ ДИФФЕРЕНЦИАЛЬНОГО ИСЧИСЛЕНИЯ}
+	\hspace{22pt}
+	\textbf{[105}\\
+\end{center}
+\abovedisplayskip=15pt
+\belowdisplayskip=15pt
+\smallskip
+\noindent и полагая во всех этих формулах $x=0$, найдем \textls{выражения коэффициентов многочлена через значения самого многочлена и его производных при $x=0$};
+$$
+	\begin{gathered}
+		a_{0}=p(0), \quad a_{1}=\frac{p^{\prime}(0)}{1 !}, \quad a_{2}=\frac{p^{\prime \prime}(0)}{2 !}, \\
+		a_{3}=\frac{p^{\prime \prime \prime}(0)}{3 !}, \ldots, a_{n}=\frac{p^{(n)}(0)}{n !}.
+	\end{gathered}
+$$
+
+Подставим эти значения коэффициентов в (1):
+\begin{boldequation}
+	p(x)=p(0)+\frac{p^{\prime}(0)}{1!}x+\frac{p^{\prime \prime}(0)}{2!}x^{2}+\frac{p^{\prime \prime \prime}(0)}{3!}x^{3}+\ldots+\frac{p^{(n)}(0)}{n!}x^{n}.
+\end{boldequation}
+
+\noindent Эта формула отличается от (1) записью коэффициентов.
+
+Вместо того чтобы разлагать многочлен по степеням $x$, можно было бы взять его разложение по степеням $x-x_{0}$, где $x_{0}$ есть некоторое постоянное частное значение $x$:
+\begin{boldequation}
+	\begin{aligned}
+		p(x)=A_{0}+A_{1}\left(x-x_{0}\right)+A_{2}\left(x-x_{0}\right)^{2} & +A_{3}\left(x-x_{0}\right)^{3}+        \\
+		                                                                   & +\ldots+A_{n}\left(x-x_{0}\right)^{n}.
+	\end{aligned}
+\end{boldequation}
+
+\noindent Полагая $x-x_{0}=\xi, \quad p(x)=p\left(x_{0}+\xi\right)=P(\xi)$, для коэффициентов многочлена
+$$
+	P(\xi)=A_{0}+A_{1}\xi+A_{2}\xi^{2}+A_{3}\xi^{3}+\ldots+A_{n}\xi^{n}
+$$
+
+\noindent имеем, по доказанному, выражения:
+$$
+	\begin{gathered}
+		A_{0}=P(0), \quad A_{1}=\frac{P^{\prime}(0)}{1!}, \quad A_{2}=\frac{P^{\prime \prime}(0)}{2!}, \\
+		A_{3}=\frac{P^{\prime \prime \prime}(0)}{3!}, \quad \ldots, \quad A_{n}=\frac{P^{(n)}(0)}{n!}.
+	\end{gathered}
+$$
+
+\noindent Но
+$$
+	\begin{gathered}
+		P(\xi)=p\left(x_{0}+\xi\right), \quad P^{\prime}(\xi)=p^{\prime}\left(x_{0}+\xi\right), \\
+		P^{\prime \prime}(\xi)=p^{\prime \prime}\left(x_{0}+\xi\right), \ldots,
+	\end{gathered}
+$$
+
+\noindent так что
+$$
+	P(0)=p\left(x_{0}\right), \quad P^{\prime}(0)=p^{\prime}\left(x_{0}\right), \quad P^{\prime \prime}(0)=p^{\prime \prime}\left(x_{0}\right), \ldots
+$$
+
+\noindent и
+\begin{boldequation}
+	\left.\begin{array}{c}
+		A_{0}=p\left(x_{0}\right), \quad A_{1}=\frac{p^{\prime}\left(x_{0}\right)}{1!}, \quad A_{2}=\frac{p^{\prime \prime}\left(x_{0}\right)}{2!}, \\
+		A_{3}=\frac{p^{\prime \prime \prime}\left(x_{0}\right)}{3!}, \ldots, A_{n}=\frac{p^{(n)}\left(x_{0}\right)}{n!},
+	\end{array}\right\}
+\end{boldequation}
+
+\noindent \textls{т. е. коэффициенты разложения (3) оказались выраженными через значения самого многочлена и его производных при $x = x_{0}$.}
+
+\end{document}

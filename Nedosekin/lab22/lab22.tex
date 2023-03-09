@@ -1,0 +1,160 @@
+\documentclass[a5paper, 10pt]{book}
+
+\usepackage[left=8mm, top=8mm, right=8mm, bottom=8mm, nohead, nofoot]{geometry}
+\usepackage[english, russian]{babel}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{wasysym}
+\usepackage{amssymb}
+
+\author{Александр Недосекин}
+\date{1.03.2023}
+
+
+
+\setcounter{page}{36}
+
+\begin{document}
+\setcounter{page}{37}
+    
+ \begin{center}
+         \textbf{\S\,4. Прогрессии. Суммирование. Бином Ньютона}
+               \noindent\rule{\textwidth}{1pt}
+    \end{center}
+\begin{spacing}
+     связывающее среднее гармоническое, среднее геометрическое,сред- \per
+     нее арифметическое и среднее квадратическое чисел $a_{1}, a_{2}, \ldots, a_{n}$.
+    \par \textbf{47. } Доказать, что если $a_{1} \leq a_{2} \leq \ldots \leq a_{n}$, $b_{1} \leq b_{2} \leq \ldots \leq b_{n}$, то
+    \begin{center}
+        $\frac{a_{1} + a_{2} + \ldots + a_{n}}{n} \frac{b_{1} + b_{2} + \ldots + b_{n}}{n} \leq \frac{a_{1}b_{1} + a_{2}b_{2} + \ldots + a_{n}b_{n}}{n}$.
+        \par \textbf{48. } Пусть положительные числа $a_{1},a_{2}, \ldots, a_{n}$ являются последова- \per
+        тельными членами арифметической прогрессии. Доказать, что
+        \begin{center}
+            $\sqrt{a_{1}a_{n}} \leq \sqrt[n]{a_{1},a_{2}, \ldots, a_{n}} \leq \frac{a_{1} + a_{n}}{2}$.
+        \end{center}
+    \end{center}
+    \par \textbf{49. } Доказать, что если A - наименьшее из положительных чисел\per $a_{1},a_{2}, \ldots, a_{n}$, B - наибольшее, то справедливо неравенство:
+    \par 1) A \leq $\sqrt[n]{a_{1},a_{2}\ldotsa_{n}} \leq B$;   2) $A \leq \sqrt{\frac{a^m_{1} + a^m_{2} + \ldots + a^m_{n}}{n}} \leq B$;
+    \par 3) $A \leq \frac{n}{\frac{1}{a_{1}} + \frac{1}{a_{2}} + \ldots + \frac{1}{a_{n}}} \leq B$;
+    \par \textbf{50. } Доказать, что для любых дейстивтельных чисел $a_{1},a_{2}, \ldots, a_{n}$,\per
+    $b_{1},b_{2}, \ldots, b_{n}$ справедливо неравенство:
+    \par 1) $(\sum\limits_{k=1}^{n}{(a_{k} + b_{k})^2})^{\frac{1}{2}} \leq (\sum\limits_{k=1}^{n}{a^2_{k}})^{\frac{1}{2}} (\sum\limits_{k=1}^{n}{b^2_{k}})^{\frac{1}{2}}$;
+    \par 2) $|(\sum\limits_{k=1}^{n}{a^2_{k}})^{\frac{1}{2}} - (\sum\limits_{k=1}^{n}{b^2_{k}})^{\frac{1}{2}}| \leq \sum\limits_{k=1}^{n}{|a_{k} - b_{k}|}$;
+    \par 3) $((\sum\limits_{k=1}^{n}{a_{k}})^{2} + (\sum\limits_{k=1}^{n}{b_{k}})^{2})^{\frac{1}{2}} \leq \sum\limits_{k=1}^{n}{(a^2_{k} + b^2_{k})^{\frac{1}{2}}}$.
+    \par \textbf{51. } Доказать, что если $a_{1} \geq 0, a_{2} \geq 0, \ldots, a_{n} \leq 0$ и $p \in N$, то \per
+    \begin{center}
+        $(\frac{1}{n}\sum\limits_{k=1}^{n}{a_{k}})^{p} \leq \frac{1}{n}\sum\limits_{k=1}^{n}{a_{k}^{p}}$.
+    \end{center}
+    \par ОТВЕТЫ
+    \par 1) $\frac{10^{n + 1} - 9n - 10}{81}$; 2) $3 - \frac{2n + 3}{2^n}$;
+    \par 3) $\frac{1 - (n + 2)x^{n + 1} + (n + 1)x^{n + 2}}{(x - 1)^2}$ при $x \neq 1$; $\frac{(n + 1)(n + 2)}{2}$ при $x = 1$;
+    \par 4) $\frac{x^{n + 2} - (n + 1)x^2 +nx}{(x - 1)^2}$ при $x \neq 1$; $\frac{n(n + 1)}{2}$ при $x = 1$.
+    \par \textbf{9. } 1) n; 2) $\frac{n^2(n + 1)}{2}$; 3) 0; 4) $\frac{n(n^2 - 1)}{3}$.
+    \par \textbf{13. } 1) $\frac{n}{3n + 1}$; 2) $\frac{n}{4n + 1}$; 3) $\frac{n(n + 2)}{3(2n + 1)(2n + 3)}$;
+    \par 4) $\frac{1}{18} - \frac{1}{3(n + 1)(n + 2)(n + 3)}$; 5) $\frac{n(n + 1)}{2(2n + 1)}$.
+\end{spacing}
+\newpage
+    \begin{center}
+         \textbf{Гл. 1. Введение}
+               \noindent\rule{\textwidth}{1pt}
+    \end{center}
+
+    \begin{spacing}
+        \textbf{15. } 2) $S|{n}(3) = \frac{n^2(n + 1)^2}{4}$.
+        \par \textbf{18. } 1) $\frac{\sin^2{nx}}{\sin{x}}$; 2) $\frac{\sin{2nx}{2\sin{x}}}$;  3) $\frac{n}{2} - \frac{\sin{nx}
+        \cos{(n + 1)x}}{2\sin{x}}$;
+        \par 4) $\frac{n}{2} + \frac{\sin{nx}\cos{(n + 1)x}}{2\sin{x}}$;
+        \par 5) $\frac{3\sin{\frac{n + 1}{2}x}\sin{\frac{nx}{2}}}{4\sin{\frac{x}{2}}} - \frac{\sin{\frac{3(n + 1)}{2}x}\sin{\frac{3nx}{2}}}{4\sin{\frac{3x}{2}}}$;
+        \par 6) $\frac{\cos{\frac{3(n + 1)x}{2}}\sin{\frac{3}{2}nx}}{4\sin{\frac{3x}{2}}} + \frac{3\cos{\frac{n + 1}{2}x}\sin{\frac{nx}{2}}}{4\sin{\frac{x}{2}}}$.
+        \par \textbf{19. } 1) $x_{n} = \frac{3^n + (-1)^{n -1}}{4}x_{1} + \frac{3}{4}(3^{n - 1} + (-1)^n)x_{0})$;
+        \par 2) $x_{n} = (2^n - 1)x_{1} - 2(2^(n - 1) - 1)x_{0}$;
+        \par 3) $x_{n} = \frac{(a - 1)^n - 1}{a - 2}x_{1} - \frac{a - 1}{a - 2}((a - 1)^(n - 1) - 1)x_{0}$ при $a \neq 2$; $x_{n} = nx_{1} - (n - 1)x_{0}$ при $a = 2$.
+        \par \textbf{20. } 1) $(1 + x)^5 = 1 + 5x + 10x^2 + 10x^3 + 5x^4 + x^5$;
+        \par 2) $(a + b)^6 = a^6 + 6a^5b + 15a^4b^2 + 20a^3b^3 + 15a^2b^4 + 6ab^5 + b^6$;
+        \par 3) $(x + y)^7 = x^7 + 7x^6y + 21x^5y^2 + 35x^4y^3 + 21x^2y^5 + 7xy^6 +y^7$;
+        \par 4) $(a - b)^8 = a^8 - 8a^7b + 28a^6b^2 - 56a^5b^3 + 70a^4b^4 - 56a^3b^5 + 28a^2b^6 - 8ab^7 + b^8$.
+        \par \textbf{21. } $C^{6}_{16}x^3$.
+        \par \textbf{22. } 1) -7; 2) -40, -74; 3) $36C^{3}_{9} + C^{4}_{9} = 378$; 4) 245; 5) $C^4_{16}$.
+        \par \textbf{23. } $1) (n + 2)2^(n - 1); 2) (n - 2)2^(n - 1) + 1; 3) 2^(2n - 1); 4) 2^(2n - 1)$;
+        \par 5) $(-1)^mC^{m}_{n - 1}$; 6) $(-1)^mC^{m}_{2m}$ при n = 2m; 0 при n = 2m + 1.
+        \par \textbf{26. } 1) $\frac{27}{64}$; 2) $C^{3}_{10}\frac{2^7}{3^10}$. \textbf{27. } $C^{12}_{30}2^9$.
+    \end{spacing}
+\vfill
+    \begin{center}
+                \textbf{\S\,5. Комплексные числа}
+                \noindent\rule{\textit}{1pt}
+    \end{center}
+    \par \textbf{1.Определение комплексного числа.}
+    \par \textit{1) Комплексные числа} - выражения вида $a + b_{i}$ ($a, b$ - действительные числа, $i$ - некоторый символ).Равенство $z = a + b_{i}$ означает, что комплексное число $a + b_{i}$ обозначено буквой z, а запись комплексного числа $z$ в виде $a + b_{i}$ называют \textit{алгебраической формой комплексного числа.}
+
+\newpage
+    
+\setcounter{page}{37}
+
+    \begin{center}
+    \textbf{\S\,5. Комплексные числа}
+    \noindent\rule{\textwidth}{1pt}
+    \end{center}
+      \begin{spacing}
+          \par2) Два комплексных числа $z_{1} = a_{1} + b_{1}i$ и $z_{2} = a_{2} + b_{2}i$ называют \textit{равными} и пишут $z_{1} = z_{2}$, если $a_{1} = a_{2}$, $b_{1} = b_{2}$.
+          \par 3) \textit{Сложение} и \textit{умножение} комплексных чисел $z_{1} = a_{1} + b_{1}i$ и $z_{2} = a_{2} + b_{2}i$ производится согласно формулам
+          \begin{center}
+           $z_{1} + z_{2} = a_{1} + a_{2} + (b_{1} + b_{2})i$,
+          \par $z_{1}z_{2} = a_{1}a_{2} - b_{1}b_{2} + (a_{1}b_{2} + a_{2}b_{1})i$.
+           \end{center}
+           \par 4) Комплексное число вида $a + 0*i$ отождествляют с дейстивтельным числом $a (a + 0*i = a)$, число вида $0 + bi (b \neq 0)$ называют \textit{чисто мнимым} и обозначают $b_{i}; i$ называют \textit{мнимой единицей}. Действительное число $a$ называют \textit{действительной частью}, а действительное число $b$ - \textit{мнимой частью} косплексного числа $a + bi$.
+           \par 5) Справедливо равенство 
+           \begin{center}
+               $i^2 = -1$,  \begin{flushright} (3) \end{flushright}     
+               \end{center}
+           а формулы (1) и (2) получаются по правилам сложения и умножения двучленов $a_{1} + b_{1}i$ и $a_{2} + b_{2}i$ с учетом равенства (3).
+           \par 6) Операции вычитания и деления определяются как обратные для сложения и умножения, а для разности $z_{1} - z_{2}$ и частного $\frac{z_{1}}{z_{2}}$ (при $z_{2} \neq 0$) комплексных чисел $z_{1} = a_{1} + b_{1}i$ и $z_{2} = a_{2} + b_{2}i$ имеют место формулы
+           \begin{center}
+               $z_{1} - z_{2} = a_{1} - a_{2} + (b_{1} - b_{2})i$,
+               \par $\frac{z_{1}}{z_{2}} = \frac{a_{!}a_{2} + b_{1}b_{2}}{a^2_{2} + b^2_{2}} + \frac{a_{2}b_{1} - a_{1}b_{2}}{a^2_{2} + b^2_{2}}$
+           \end{center}
+               \par 7)Сложение и умножение комплексных чисел обладают свойствами коммунитативности, ассоциативности и дистрибутивности:
+               \begin{center}
+                   $z_{1} + z_{2} = z_{2} + z_{1}$,  $z_{1}z_{2} = z_{2}z_{1}$;
+                   \par $(z_{1} + z_{2}) + z_{3} = z_{1} + (z_{2} + z_{3})$, $(z_{1}z_{2}z_{3} = z_{1}(z_{2}z_{3})$;
+                   \par $z_{1}(z_{2} + z_{3}) = z_{1}z_{2} + z_{1}z_{3}$.
+                   \par
+                     \textbf{2.Модуль комплексного числа. Комплексно сопряженные числа.}
+               \end{center}
+               \par \textit{1) Модулем комплексного числа} $z = a + bi$ (обозначается $|z|$) называется число $\sqrt{a^2 + b^2}$, т.е. 
+               \begin{center}
+               $|z| = \sqrt{a^2 + b^2}$.
+               \end{center}
+               \par 2) Для любых комплексных чисел z_{1}, z_{2} справедливы равенства 
+               \begin{center}
+                   $|z_{1}z_{2}| = |z_{1}|*|z_{2}|$;
+                   \par если $z_{2} \neq 0$, то $|\frac{z_{1}}{z_{2}}| = |\frac{z_{1}}{z_{2}}|$
+               \end{center}
+               \par 3) Число $a - bi$ называется \textit{комплексно сопряженным} с числом $z = a + bi$ и обозначается $\vec{z}$, т.е. 
+               \begin{center}
+                   $\vec{z} = \vec{a + bi} = a - bi$.
+               \end{center}
+
+\newpage
+\setcounter{page}{38}
+               \begin{center}
+               \textbf{Гл. 1. Введение}
+               \noindent\rule{\textwidth}{1pt}
+               \end{center}
+               \par Справедливы равенства 
+               \begin{center}
+                   $z*\vec{z} = |z^2|$, $\vec{\vec{z}}$.
+               \end{center}
+               \par 4) Для любых комплексных чисел $z_{1}$, $z_{2}$ верны равенства:
+               \begin{center}
+                   $\vec{z_{1} \pm z_{2}} = \vec{z_{1}} \pm z_{2}$, $\vec{z_{1}z_{2}} = \vec{z_{1}*z_{2}}$;
+                   \par если $z_{2} \neq 0$, то $\vec{\frac{z_{1}}{z_{2}}} = \frac{\vec{z_{1}}}{\vec{z_{2}}}$.
+               \end{center}
+               \par 5) Частное от деления комплексных чисел можно записать в виде 
+               \begin{center}
+                   $\frac{z_1}{z_{2}} = \frac{z_{1}\vec{z_{2}}{z_{2}\vec{z_2}}} = \frac{z_{1}\vec{z_{2}}{|z_{2}|^2}}$, $z_{2} \neq 0$.
+                   \end{center}
+           
+      \end{spacing}
+                
+\end{document}
