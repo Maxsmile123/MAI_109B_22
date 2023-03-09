@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#cheking for file
+#333cheking for file
 if [ -f  "$1" ];
 then
 #generation
