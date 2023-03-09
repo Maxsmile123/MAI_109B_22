@@ -17,9 +17,10 @@ def count_lines(file):
         for subfile in os.listdir(file):
             count_lines(os.path.join(file, subfile))
 
-parser = ArgumentParser(description='Count lines in *.h and *.cpp files in directory recursively.')
-parser.add_argument('dir', type=str, help='Directory to search files in')
-args = parser.parse_args()
+if __name__ == '__main__':
+    parser = ArgumentParser(description='Count lines in *.h and *.cpp files in directory recursively.')
+    parser.add_argument('dir', type=str, help='Directory to search files in')
+    args = parser.parse_args()
 
-count_lines(args.dir)
-print(f'Total: {total_lines}')
+    count_lines(args.dir)
+    print(f'Total: {total_lines}')
