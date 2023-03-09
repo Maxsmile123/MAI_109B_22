@@ -1,6 +1,5 @@
 import os
 import argparse
-import sys
 
 def getParameters():
     parser = argparse.ArgumentParser(
@@ -26,25 +25,33 @@ def getParameters():
 
 
 def file_analysis(_suffix: int, _directory: str, _file: str):
-    olddir = os.getcwd()
+    old_directory = os.getcwd()
     for root, dirs, files in os.walk(_directory):
         os.chdir(root)
         for file in files:
             if os.access(file, os.X_OK):
                 if (file[-len(_suffix):] == _suffix  or _suffix == ' '):
                     size = os.stat(file).st_size
-                    os.chdir(olddir)
+                    os.chdir(old_directory)
                     outputFile = open(_file, 'a+')
                     outputFile.write('Размер: '+str(size)+'b Название: '+file+'\n')
                     outputFile.close()
                     os.chdir(root)
 
 
+def main():
+    suffix, file_size, search_directory, output_file = getParameters()
 
-s, n, d, f = getParameters() #Letters stands for name of each parameter
-startFile = open(f, "a+")
-startFile.close()
-if (os.stat(f).st_size > n):
-    print("Заданный файл слишком большой!")
-    sys.exit()
-file_analysis(s, d, f)
+    startFile = open(output_file, "a+")
+    startFile.close()
+
+    try:
+        if (os.stat(output_file).st_size > file_size):
+            raise Exception("Заданный файл слишком большой!")
+    except Exception as _exception:
+        print(_exception)
+
+    file_analysis(suffix, search_directory, output_file)
+
+if __name__ == '__main__':
+    main()
