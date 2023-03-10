@@ -18,3 +18,4 @@ for f in filtered_files:
     new_name = args.suffix[1:] + f.replace(args.suffix, '')
     # Создаем синоним
     os.symlink(f, new_name)
+    
