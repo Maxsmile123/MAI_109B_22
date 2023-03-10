@@ -5,18 +5,22 @@ def getParameters():
     parser = argparse.ArgumentParser(
         description="This command writes the names and sizes of all executable files to the specified file.")
     parser.add_argument('-s',
+                        '--suffix',
                         type=str,
                         default=' ',
                         help="Write only files with the given STR suffix. Disabled by default.")
     parser.add_argument('-n',
+                        '--number',
                         type=int,
                         default=1024,
                         help="Write to a file, the size of which must not exceed NUM bytes. The default value is 1024 bytes.")
     parser.add_argument('-d',
+                        '--directory',
                         type=str,
                         default=os.getcwd(),
                         help="Search in the DIR directory. By default, the search occurs in the current directory.")
     parser.add_argument('-f',
+                        '--file',
                         type=str,
                         default='Output_file',
                         help="Write to FIL file. By default, the recording goes to the Output_file.")
@@ -35,7 +39,7 @@ def check_output_file(_file: str, _file_size: int, _directory:str):
             raise SystemExit
 
 
-def file_analysis(_suffix: int, _directory: str, _file: str, _file_size: int):
+def record_file_with_suffix(_suffix: int, _directory: str, _file: str, _file_size: int):
     _file_path = os.getcwd() + '/' + _file
     check_output_file(_file, _file_size, _file_path)
     os.chdir(_directory)
@@ -53,7 +57,7 @@ def file_analysis(_suffix: int, _directory: str, _file: str, _file_size: int):
 def main():
     suffix, file_size, search_directory, output_file = getParameters()
 
-    file_analysis(suffix, search_directory, output_file, file_size)
+    record_file_with_suffix(suffix, search_directory, output_file, file_size)
 
 if __name__ == '__main__':
     main()

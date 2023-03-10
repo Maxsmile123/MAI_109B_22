@@ -1,15 +1,19 @@
 #!/usr/bin/bash
 
-helpstr="usage: Suffix.py [-h] [-s S] [-n N] [-d D] [-f F]
+helpstr="usage: Suffix.py [-h] [-s SUFFIX] [-n NUMBER] [-d DIRECTORY] [-f FILE]
 
 This command writes the names and sizes of all executable files to the specified file.
 
 options:
-  -h, --help show this help message and exit
-  -s S Write only files with the given STR suffix. Disabled by default.
-  -n N Write to a file, the size of which must not exceed NUM bytes. The default value is 1024 bytes.
-  -d D Search in the DIR directory. By default, the search occurs in the current directory.
-  -f F Write to FIL file. By default, the recording goes to the Output_file."
+  -h, --help            show this help message and exit
+  -s SUFFIX, --suffix SUFFIX
+                        Write only files with the given STR suffix. Disabled by default.
+  -n NUMBER, --number NUMBER
+                        Write to a file, the size of which must not exceed NUM bytes. The default value is 1024 bytes.
+  -d DIRECTORY, --directory DIRECTORY
+                        Search in the DIR directory. By default, the search occurs in the current directory.
+  -f FILE, --file FILE  Write to FIL file. By default, the recording goes to the Output_file.
+"
 
 number=1024
 suffix=" "
@@ -22,19 +26,19 @@ do
 
         "--help" ) echo "$helpstr"; exit 0;;
 
-        "-s" | "-n" | "-d" | "-f" ) flag=$parameter ;;
+        "-s" | "-n" | "-d" | "-f" | "--number" | "--directory" | "--suffix" | "--file") flag=$parameter ;;
 
         * )
-            if [ "$flag" = "-n" ]; then
+            if [ "$flag" = "-n" ] || [ "$flag" = "--number" ]; then
                 number=$parameter
             fi
-            if [ "$flag" = "-d" ]; then
+            if [ "$flag" = "-d" ] || [ "$flag" = "--directory" ]; then
                 directory="$parameter"
             fi
-            if [ "$flag" = "-s" ]; then
+            if [ "$flag" = "-s" ] || [ "$flag" = "--suffix" ]; then
                 suffix="$parameter"
             fi
-            if [ "$flag" = "-f" ]; then
+            if [ "$flag" = "-f" ] || [ "$flag" = "--file" ]; then
                 outputFile="$parameter"
             fi
             ;;
