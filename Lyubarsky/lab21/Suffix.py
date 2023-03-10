@@ -24,34 +24,36 @@ def getParameters():
     return args.s, args.n, args.d, args.f
 
 
-def file_analysis(_suffix: int, _directory: str, _file: str):
-    old_directory = os.getcwd()
-    for root, dirs, files in os.walk(_directory):
+def check_output_file(_file: str, _file_size: int, _directory:str):
+    _files = os.listdir(_directory[:-len(_file)])
+    if _file in _files:
+        try:
+            if (os.stat(_directory).st_size > _file_size):
+                raise Exception("Заданный файл слишком большой!")
+        except Exception as _exception:
+            print(_exception)
+            raise SystemExit
+
+
+def file_analysis(_suffix: int, _directory: str, _file: str, _file_size: int):
+    _file_path = os.getcwd() + '/' + _file
+    check_output_file(_file, _file_size, _file_path)
+    os.chdir(_directory)
+    for root, dirs, files in os.walk(os.getcwd()):
         os.chdir(root)
         for file in files:
             if os.access(file, os.X_OK):
-                if (file[-len(_suffix):] == _suffix  or _suffix == ' '):
+                _lenght_of_suffix = len(_suffix)
+                if (file[-_lenght_of_suffix:] == _suffix  or _suffix == ' '):
                     size = os.stat(file).st_size
-                    os.chdir(old_directory)
-                    outputFile = open(_file, 'a+')
-                    outputFile.write('Размер: '+str(size)+'b Название: '+file+'\n')
-                    outputFile.close()
-                    os.chdir(root)
+                    with open(_file_path, 'a+') as output_File:
+                        output_File.write('Размер: '+str(size)+'b Название: '+file+'\n')
 
 
 def main():
     suffix, file_size, search_directory, output_file = getParameters()
 
-    startFile = open(output_file, "a+")
-    startFile.close()
-
-    try:
-        if (os.stat(output_file).st_size > file_size):
-            raise Exception("Заданный файл слишком большой!")
-    except Exception as _exception:
-        print(_exception)
-
-    file_analysis(suffix, search_directory, output_file)
+    file_analysis(suffix, search_directory, output_file, file_size)
 
 if __name__ == '__main__':
     main()
