@@ -7,10 +7,8 @@ def args():
     ParserSuf.add_argument("suffix", type = str, help = "Suffix of file")
     args = ParserSuf.parse_args()
     return args
-    
-# A function that filters files by suffix and number of links and gets filtered_files - a list of files suitable for creating a synonym
+
 def filtr_files():
-    # Get a list of all files in the current directory
     files = os.listdir()
     filtered_files = [f for f in files if f.endswith(args().suffix) and os.stat(f).st_nlink <= 1]
     return filtered_files
