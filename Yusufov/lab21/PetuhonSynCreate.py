@@ -22,3 +22,4 @@ def main():
         os.symlink(f, new_name)
 if __name__ =='__main__':
     main()
+
