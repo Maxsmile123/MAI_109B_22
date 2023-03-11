@@ -1,17 +1,17 @@
 #!/bin/bash
-# Получаем суффикс из аргументов командной строки
+# Get suffix from command line arguments
 suffix=$1
 
-for file in *$suffix; do # перебираем все файлы с указанным суффиксом
-    link_count=$(stat -c %h $file) # получаем количество связей у файла
-    if [ $link_count -le 1 ]; then # проверяем, что количество связей больше 1
-    # Получаем имя файла без суффикса
+for file in *$suffix; do # iterate over all files with the specified suffix
+    link_count=$(stat -c %h $file) # get the number of links in a file
+    if [ $link_count -le 1 ]; then # check that the number of connections is greater than 1
+    # Get filename without suffix
     filename=${file%.$suffix}
-    # Получаем новое имя файла с переставленным суффиксом
+    # We get a new file name with a rearranged suffix
     new_filename=${suffix//./}${filename}
-    # Создаём новый файл-синоним
+    # Create a new synonym file
     touch $file $new_filename
     fi
 done
 
-echo "Готово!"
+echo "Done!"
